@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface Contact {
   id: number;
   firstName: string;
@@ -51,19 +53,22 @@ const AllContact: React.FC<AllContactProps> = ({
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {contacts.map((contact: Contact) => (
-            <div key={contact.id} className="bg-white rounded-lg shadow-lg drop-shadow-lg p-4">
+            <div
+              key={contact.id}
+              className="bg-white rounded-lg shadow-lg drop-shadow-lg p-4"
+            >
               <p className="capitalize flex justify-between items-center">
-                <b className="text-md font-medium text-gray-900">Name:</b>
-                <span className="text-sm text-gray-700">
+                <span className="text-md font-semibold text-gray-900">Name:</span>
+                <span className="text-sm font-medium text-gray-700">
                   {contact.firstName} {contact.lastName}
                 </span>
               </p>
               <p className="flex justify-between items-center">
-                <b className="text-md font-medium text-gray-900">Email: </b>
-                <span className="text-sm text-gray-700">{contact.email}</span>
+                <span className="text-md font-semibold text-gray-900">Email: </span>
+                <span className="text-sm font-medium text-gray-700">{contact.email}</span>
               </p>
               <p className="capitalize flex justify-between items-center">
-                <b className="text-md font-medium text-gray-900">Status:</b>
+                <span className="text-md font-semibold text-gray-900">Status:</span>
                 <span
                   className={`font-bold  text-sm ${
                     contact.status === "active"
@@ -74,15 +79,20 @@ const AllContact: React.FC<AllContactProps> = ({
                   {contact.status}
                 </span>
               </p>
-              <div className="flex justify-end mt-4">
+              <div className="flex justify-end mt-4 text-[0.8rem] gap-4">
+                <Link to={`/contact/${contact.id}`}>
+                  <button className="px-3 py-2  text-white bg-purple-600 hover:bg-purple-700 rounded-md font-mono">
+                    View
+                  </button>
+                </Link>
                 <button
-                  className="px-5 py-2 mr-2 text-white bg-green-600 hover:bg-green-700 rounded-full font-mono"
+                  className="px-3 py-2  text-white bg-green-600 hover:bg-green-700 rounded-md font-mono"
                   onClick={() => handleEditContact(contact.id)}
                 >
                   Edit
                 </button>
                 <button
-                  className="px-5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full font-mono"
+                  className="px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md font-mono"
                   onClick={() => handleDeleteContact(contact.id)}
                 >
                   Delete
