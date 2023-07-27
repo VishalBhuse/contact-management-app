@@ -12,5 +12,5 @@ body {
 }
 
 .active {
-  @apply bg-purple-300 text-[#0D062D] rounded-md	font-semibold;
+  @apply border-b-4 border-pink-600 text-[#0D062D] rounded-md	font-semibold;
 }

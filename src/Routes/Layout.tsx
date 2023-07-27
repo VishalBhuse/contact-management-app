@@ -9,9 +9,9 @@ const Layout: React.FC = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="flex">
+      <div>
         <Sidebar />
-        <div className="flex-grow p-2">
+        <div className="p-2 sm:ml-64">
           <Routes>
             <Route path="/" element={<Contact />} />
             <Route path="/charts-and-maps" element={<ChartAndMap />} />

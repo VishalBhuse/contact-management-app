@@ -62,21 +62,35 @@ const ContactForm: React.FC<ContactFormProps> = ({
   }, [editContactId, contacts, onCancel]);
 
   return (
-    <div className="p-5 text-left w-[70%] m-auto shadow-lg">
+    <div className="p-5 text-left md:w-[70%] mx-auto shadow-lg">
       <div className="my-4 flex justify-between">
         <h2 className="text-2xl font-bold mb-2 text-purple-500">
           {editContactId !== null ? "Edit Contact" : "Add New Contact"}
         </h2>
         <button
           type="button"
-          className="bg-red-500 hover:bg-red-600 text-white h-[1.5rem] p-3 flex justify-start items-center rounded-[5px] text-[13px]"
+          className="bg-red-500 hover:bg-red-600 text-white h-[1.5rem] w-[1.5rem] rounded-[5px] text-[10px] grid place-items-center"
           onClick={onCancel}
         >
-          X
+          <svg
+            className="w-2 h-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+            />
+          </svg>
         </button>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="mb-4">
             <label
               className="block text-gray-700 font-semibold mb-2"
@@ -95,7 +109,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               required
             />
           </div>
-          <div>
+          <div className="mb-4">
             <label
               className="block text-gray-700 font-semibold mb-2"
               htmlFor="lastName"
