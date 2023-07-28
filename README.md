@@ -17,6 +17,13 @@
 - Covid-19 data on Chart
 - Covid-19 Worldwide data
 
+## Pages:-
+### Contact Page:-
+![image](https://github.com/VishalBhuse/contact-management-app/assets/101569259/76988acf-efba-4c13-b763-45598a1e65d5)
+
+### Chart & Map Page:-
+![image](https://github.com/VishalBhuse/contact-management-app/assets/101569259/88f2b77e-e1d8-4d96-aa15-152496d24815)
+
 
 
 # How To Start App
