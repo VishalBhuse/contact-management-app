@@ -1,6 +1,6 @@
 # Generate Random Password
 
-## Live Link : - https://password-generator-vishalbhuse.vercel.app
+## Live Link : - https://contact-management-app-virid.vercel.app/
 
 ## Tech Stack
 - React JS,
