@@ -1,5 +1,16 @@
+import CountryGraph from "../Component/ChartComponet/CountryGraph";
+import LineGraph from "../Component/ChartComponet/LineGraph";
+
 const ChartAndMap = () => {
-  return <div>ChartAndMap</div>;
+  return (
+    <>
+      <LineGraph />
+
+      <br />
+
+      <CountryGraph />
+    </>
+  );
 };
 
 export default ChartAndMap;
