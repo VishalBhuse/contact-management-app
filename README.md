@@ -1,4 +1,4 @@
-# Generate Random Password
+# Contact Management App and Chart
 
 ## Live Link : - https://contact-management-app-virid.vercel.app/
 
