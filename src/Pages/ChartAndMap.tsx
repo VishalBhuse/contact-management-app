@@ -1,14 +1,21 @@
-import CountryGraph from "../Component/ChartComponet/CountryGraph";
-import LineGraph from "../Component/ChartComponet/LineGraph";
+import React, { Suspense } from "react";
+import Loader from "../Component/Loading/Loader";
+
+const LineGraph = React.lazy(() => import("../Component/ChartComponet/LineGraph"));
+const CountryGraph = React.lazy(() => import("../Component/ChartComponet/CountryGraph"));
 
 const ChartAndMap = () => {
   return (
     <>
-      <LineGraph />
+      <Suspense fallback={ <Loader />}>
+        <LineGraph />
+      </Suspense>
 
       <br />
 
-      <CountryGraph />
+      <Suspense fallback={ <Loader />}>
+        <CountryGraph />
+      </Suspense>
     </>
   );
 };

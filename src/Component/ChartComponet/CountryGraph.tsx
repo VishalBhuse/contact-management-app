@@ -2,37 +2,22 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useQuery } from "@tanstack/react-query";
 import "leaflet/dist/leaflet.css";
-
+import Loader from "../Loading/Loader";
+import { Icon } from "leaflet";
 const baseUrl = "https://disease.sh/v3/covid-19/countries";
-declare module "react-leaflet" {
-  interface MapContainerProps {
-    center: any;
-    zoom: number;
-  }
-}
-declare module "react-leaflet" {
-  interface TileLayerProps {
-    attribution: string;
-  }
-}
+
+const customICon = new Icon({
+  iconUrl: require("./marker-icon.png"),
+});
+
 const CountryGraph: React.FC = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["repoData"],
     queryFn: () => fetch(baseUrl).then((res) => res.json()),
   });
 
-  console.log(data);
-
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-[90vh]">
-        <img
-          className="h-16 w-16"
-          src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif"
-          alt="gif"
-        />
-      </div>
-    );
+    return <Loader />;
   }
 
   return (
@@ -52,11 +37,14 @@ const CountryGraph: React.FC = () => {
         {data.map((country: any) => (
           <Marker
             key={country.country}
+            icon={customICon}
             position={[country.countryInfo.lat, country.countryInfo.long]}
           >
             <Popup>
               <div>
-                <h2>{country.country}</h2>
+                <h2 className="text-orange-400 font-semibold">
+                  Country: {country.country}
+                </h2>
                 <p>Total Active Cases: {country.active}</p>
                 <p>Total Recovered Cases: {country.recovered}</p>
                 <p>Total Deaths: {country.deaths}</p>
